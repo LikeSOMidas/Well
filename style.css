@@ -1,34 +1,50 @@
 /* Centraliza tudo na tela inteira */
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px; /* Margem de segurança para telas pequenas */
+  box-sizing: border-box;
   min-height: 100vh;
   display: flex;
+  flex-direction: column; /* Organiza o conteúdo verticalmente */
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center;     /* Centraliza verticalmente */
-  background-color: #111;  /* Fundo escuro (opcional) */
-  color: #fff;             /* Texto claro (opcional) */
-  font-family: jetbrains-mono, monospace;  /* Combina com o estilo da arte */
+  background-color: #111;  
+  color: #fff;             
+  font-family: jetbrains-mono, monospace;  
   position: relative;
+  
+  /* Fonte fluida para o corpo do texto */
+  font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
+}
+
+/* Garante o box-sizing correto em todos os elementos */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Caixa principal que segura a arte e o formulário */
+.container-poco {
+  display: flex;
+  flex-direction: column; /* Empilha a arte e o formulário nativamente */
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Espaço seguro entre o desenho e o formulário */
+  width: 100%;
 }
 
 /* Centraliza a tag customizada da arte ASCII */
 ArteASCII,
 arte-ascii {
   display: block;
-  width: 100%;            /* Ocupa a largura total para a rolagem funcionar */
-  max-width: max-content; /* Centraliza corretamente se a tela for maior que a arte */
+  width: 100%;            
+  max-width: max-content; 
   margin: 0 auto;
   text-align: center;
   font-family: 'jetbrains-mono', monospace;
-}
-
-/* Caixa que junta o poço e o formulário no mesmo lugar */
-.container-poco {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-x: auto; /* Permite rolagem horizontal apenas na arte se a tela for MUITO pequena */
+  
+  /* Fonte menor e altamente adaptável para a arte ASCII não quebrar linha */
+  font-size: clamp(0.4rem, 0.7vw + 0.2rem, 0.9rem);
 }
 
 /* Garante que o desenho ASCII fique centralizado e sem margens soltas */
@@ -36,25 +52,19 @@ pre {
   margin: 0;
   padding: 0;
   white-space: pre;
-  line-height: 1;
+  line-height: 1.1; /* Pequeno ajuste para legibilidade de artes ASCII */
   letter-spacing: 0;
+  font-size: inherit; 
 }
 
-/* Coloca o formulário exatamente no centro do poço (camada de cima) */
+/* Formulário estilizado */
 form {
-  position: absolute;
-  /* Centraliza perfeitamente em relação ao container do poço */
-  top: 120%; 
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  /* Organização dos inputs */
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: 2; /* Move o formulário para a camada da frente */
+  width: 100%;
+  max-width: 350px; /* Impede o formulário de esticar demais na horizontal */
   
-  /* Estilo para o texto do formulário não misturar com os traços do poço */
   background: rgba(17, 17, 17, 0.9); 
   padding: 20px;
   border: 1px dashed #555;
@@ -64,34 +74,99 @@ form {
 /* Alinha as labels e inputs do formulário */
 form label {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column; /* Em telas menores, o input vai para baixo da legenda */
+  align-items: flex-start;
+  gap: 6px;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+}
+
+/* Quando a tela for um pouco maior, a legenda e o input ficam lado a lado */
+@media (min-width: 400px) {
+  form label {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
 }
 
 form input {
   background: #222;
   border: 1px solid #555;
   color: #fff;
-  padding: 4px;
+  padding: 6px;
+  width: 100%; /* Ocupa o espaço disponível horizontalmente */
+  font-size: clamp(0.85rem, 1vw, 1rem);
 }
 
 form button {
   background: #fff;
   color: #111;
   border: none;
-  padding: 6px;
+  padding: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  margin-top: 5px;
 }
 
-/* Fixa o autor no canto inferior direito da tela */
-.autor {
-  position: fixed;
-  bottom: 15px;
-  right: 20px;
+/* Rodapé que junta o link e o autor de forma responsiva */
+.rodape-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Limita a expansão em telas UltraWide */
+  padding: 0 20px;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  pointer-events: none; /* Impede que o container invisível bloqueie cliques */
+}
+
+/* Estilo comum para os links e o autor no rodapé */
+a, .autor {
+  pointer-events: auto; /* Devolve a capacidade de clique aos links */
+  font-size: clamp(0.75rem, 0.8vw, 0.9rem);
   margin: 0;
-  font-size: 0.85rem;
-  opacity: 0.6;
 }
 
+/* Posicionamento do Hiperlink (20% de distância da borda esquerda se a tela for grande) */
+a {
+  color: #00bcd4;          
+  text-decoration: none;
+  margin-left: 20%; 
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Posicionamento do Autor (20% de distância da borda direita se a tela for grande) */
+.autor {
+  opacity: 0.6;
+  margin-right: 20%;
+}
+
+/* Ajustes finos para celulares e telas verticais pequenas */
+@media (max-width: 768px) {
+  body {
+    justify-content: flex-start; /* Evita que o conteúdo suma no topo da tela */
+    padding-bottom: 80px; /* Abre espaço para o rodapé não cobrir o formulário */
+  }
+  
+  .rodape-container {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px;
+    flex-direction: column; /* Empilha o link e o autor no celular */
+    align-items: center;
+    gap: 10px;
+  }
+  
+  a, .autor {
+    margin: 0; /* Reseta as margens de 20% para centralizar no celular */
+    text-align: center;
+  }
+}
