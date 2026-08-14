@@ -21,7 +21,7 @@ footer {
   margin: 0;
   position: relative;
   top: -10px;
-  align-self: left;
+  justify-content: center;
 }
 
 /* Garante o box-sizing correto em todos os elementos */
