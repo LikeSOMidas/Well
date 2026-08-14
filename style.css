@@ -20,6 +20,8 @@ arte-ascii {
   margin: 0 auto;
   text-align: center;
   overflow-x: auto;
+  white-space: pre;
+  font-family: jetbrains-mono, monospace;
 }
 
 /* Caixa que junta o poço e o formulário no mesmo lugar */
