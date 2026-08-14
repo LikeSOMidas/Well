@@ -29,6 +29,15 @@ arte-ascii {
   align-items: center;
 }
 
+.container-ASCII {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  left: 50%;
+  font-size: clamp(1rem, 4vw, 2.5rem);
+}
+
 /* Garante que o desenho ASCII fique centralizado e sem margens soltas */
 pre {
   margin: 0;
