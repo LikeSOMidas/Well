@@ -101,7 +101,7 @@ footer {
 
 @media screen and (max-width: 768px) {
     body {
-    font-family: monospace;
+    font-family: monospace, monospace;
     white-space: pre;
     overflow-x: auto;
     font-size: 3vw;
