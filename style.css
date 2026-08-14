@@ -16,12 +16,13 @@ body {
 ArteASCII,
 arte-ascii {
   display: block;
-  width: fit-content;
+  width: 100%;            /* Ocupa a largura total para a rolagem funcionar */
+  max-width: max-content; /* Centraliza corretamente se a tela for maior que a arte */
   margin: 0 auto;
   text-align: center;
-  overflow-x: auto;
+  overflow-x: auto;       /* Ativa a barra de rolagem lateral se necessário */
   white-space: pre;
-  font-family: jetbrains-mono, monospace;
+  font-family: 'jetbrains-mono', monospace;
 }
 
 /* Caixa que junta o poço e o formulário no mesmo lugar */
