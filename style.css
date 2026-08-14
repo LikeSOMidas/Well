@@ -20,7 +20,6 @@ arte-ascii {
   max-width: max-content; /* Centraliza corretamente se a tela for maior que a arte */
   margin: 0 auto;
   text-align: center;
-  overflow-x: auto;       /* Ativa a barra de rolagem lateral se necessário */
   white-space: pre;
   font-family: 'jetbrains-mono', monospace;
 }
