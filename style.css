@@ -19,6 +19,7 @@ arte-ascii {
   width: fit-content;
   margin: 0 auto;
   text-align: center;
+  overflow-x: auto;
 }
 
 /* Caixa que junta o poço e o formulário no mesmo lugar */
