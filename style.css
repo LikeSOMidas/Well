@@ -104,7 +104,7 @@ footer {
     font-family: monospace;
     white-space: pre;
     overflow-x: auto;
-    font-size: 9px;
+    font-size: 3vw;
     line-height: 10px;
     padding: 10px;
   }
