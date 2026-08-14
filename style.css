@@ -39,7 +39,7 @@ arte-ascii {
   width: 100%;            
   max-width: max-content; 
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   font-family: 'jetbrains-mono', monospace;
   overflow-x: auto; /* Permite rolagem horizontal apenas na arte se a tela for MUITO pequena */
   
@@ -134,7 +134,7 @@ a, .autor {
 
 /* Posicionamento do Hiperlink (20% de distância da borda esquerda se a tela for grande) */
 a {
-  color: #00bcd4;          
+  color: #affff4;          
   text-decoration: none;
   margin-left: 20%; 
 }
