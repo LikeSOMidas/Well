@@ -96,10 +96,5 @@ form button {
 footer {
   position: fixed;
   left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.aaa {
-  top: 90%;
+  top: 95%;
 }
