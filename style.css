@@ -100,6 +100,6 @@ footer {
   transform: translateY(-50%);
 }
 
-a {
-  top: 95%;
+.footer-aaa {
+  top: 90%;
 }
