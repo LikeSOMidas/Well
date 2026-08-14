@@ -19,6 +19,7 @@ body {
 
 footer {
   margin: 0;
+  position: relative;
   top: -10px;
 }
 
