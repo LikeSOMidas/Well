@@ -1,0 +1,95 @@
+/* Centraliza tudo na tela inteira */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  background-color: #111;  /* Fundo escuro (opcional) */
+  color: #fff;             /* Texto claro (opcional) */
+  font-family: jetbrains-mono, monospace;  /* Combina com o estilo da arte */
+  position: relative;
+}
+
+/* Centraliza a tag customizada da arte ASCII */
+ArteASCII,
+arte-ascii {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Caixa que junta o poço e o formulário no mesmo lugar */
+.container-poco {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Garante que o desenho ASCII fique centralizado e sem margens soltas */
+pre {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* Coloca o formulário exatamente no centro do poço (camada de cima) */
+form {
+  position: absolute;
+  /* Centraliza perfeitamente em relação ao container do poço */
+  top: 120%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Organização dos inputs */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2; /* Move o formulário para a camada da frente */
+  
+  /* Estilo para o texto do formulário não misturar com os traços do poço */
+  background: rgba(17, 17, 17, 0.9); 
+  padding: 20px;
+  border: 1px dashed #555;
+  border-radius: 4px;
+}
+
+/* Alinha as labels e inputs do formulário */
+form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+form input {
+  background: #222;
+  border: 1px solid #555;
+  color: #fff;
+  padding: 4px;
+}
+
+form button {
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Fixa o autor no canto inferior direito da tela */
+.autor {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
