@@ -76,6 +76,11 @@ form label {
   gap: 15px;
 }
 
+form textarea {
+  background-color: #222
+  color: #fff
+  }
+
 form input {
   background: #222;
   border: 1px solid #555;
