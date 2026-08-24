@@ -34,8 +34,8 @@ arte-ascii {
   display: flex;
   justify-content: center;
   align-self: center;
-  left: 50%;
-  font-size: clamp(1rem, 4vw, 2.5rem);
+  top: -20%;
+  font-size: small;
   font-family: monospace;
 }
 
