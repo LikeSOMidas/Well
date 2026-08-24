@@ -1,7 +1,7 @@
 document.querySelector('form').addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
-    event.preventDefault(); 
+    event.preventDefault(); // Impede o envio padrão do formulário
 
     const nome = document.querySelector('input[name="Nome"]').value;
     const memoria = document.querySelector('input[name="Memória"]').value;
@@ -35,6 +35,7 @@ function iniciarLoadingAscii(elementoBotao) {
     
     let etapaAtual = 0;
 
+    // Atualiza o texto do botão a cada 300 milissegundos
     const intervalo = setInterval(() => {
         if (etapaAtual < etapasBarra.length) {
             elementoBotao.textContent = etapasBarra[etapaAtual];
