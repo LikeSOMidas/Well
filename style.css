@@ -27,8 +27,10 @@ body {
   align-self: center;
   top: -20%;
   font-size: small;
-  font-family: monospace;
-  -webkit-text-size-adjust: none;
+  font-family: "Courier New", Courier, monospace;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  user-select: none;
   white-space: pre;
 }
 
