@@ -28,6 +28,8 @@ body {
   top: -20%;
   font-size: small;
   font-family: monospace;
+  -webkit-text-size-adjust: none;
+  white-space: pre;
 }
 
 pre {
